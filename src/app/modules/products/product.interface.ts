@@ -13,7 +13,7 @@ export type tInventory = {
 export type tProducts = {
   name: string;
   description: string;
-  price: string;
+  price: number;
   category: string;
   tags: string[];
   variants: tVariants[];

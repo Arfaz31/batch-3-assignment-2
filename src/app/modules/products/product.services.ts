@@ -9,8 +9,14 @@ const creatProductIntoDB = async (productData: tProducts) => {
   return result;
 };
 
-const getAllProductsFromDB = async () => {
-  const result = await productModel.find();
+const getAllProductsFromDB = async (searchTerm: any) => {
+  let filter = {};
+  if (searchTerm) {
+    filter = { name: { $regex: searchTerm, $options: "i" } };
+  }
+
+  const result = await productModel.find(filter);
+  console.log(result);
   return result;
 };
 
