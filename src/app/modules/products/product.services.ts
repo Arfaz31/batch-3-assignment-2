@@ -13,7 +13,6 @@ const getAllProductsFromDB = async (searchTerm: any) => {
   }
 
   const result = await productModel.find(filter);
-  console.log(result);
   return result;
 };
 
