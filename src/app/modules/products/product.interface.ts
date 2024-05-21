@@ -19,7 +19,3 @@ export type tProducts = {
   variants: tVariants[];
   inventory: tInventory;
 };
-
-// export interface ProductStaticModel extends Model<tProducts> {
-//   isProductExists(name: string): Promise<tProducts | null>;
-// }

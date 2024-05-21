@@ -27,8 +27,4 @@ const productSchema = new Schema<tProducts>({
   inventory: { type: tInventorySchema },
 });
 
-// productSchema.statics.isProductExists = async function (name: string) {
-//   const existingProduct = await productModel.findOne({ name });
-//   return existingProduct;
-// };
 export const productModel = model("product", productSchema);
