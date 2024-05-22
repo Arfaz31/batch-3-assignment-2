@@ -8,6 +8,10 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req: Request, res: Response) => {
+  res.send("Welcome to E-commerce API Service");
+});
+
 app.use("/api", productRouters);
 app.use("/api/orders", orderRouter);
 
@@ -16,10 +20,6 @@ app.use((req: Request, res: Response) => {
     success: false,
     message: "Route not found",
   });
-});
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
 });
 
 export default app;
