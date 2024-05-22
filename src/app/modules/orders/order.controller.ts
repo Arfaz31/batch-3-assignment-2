@@ -10,7 +10,24 @@ const createOrder = async (req: Request, res: Response) => {
       message: "Order created successfully!",
       data: result,
     });
-  } catch (error: any) {}
+  } catch (error: any) {
+    if (error.message === "Insufficient quantity available in inventory") {
+      res.status(400).json({
+        success: false,
+        message: error.message,
+      });
+    } else if (error.message === "Product not found") {
+      res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        success: false,
+        message: "Something went wrong",
+      });
+    }
+  }
 };
 
 const getAllOrder = async (req: Request, res: Response) => {
